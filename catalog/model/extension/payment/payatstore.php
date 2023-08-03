@@ -4,7 +4,7 @@ class ModelExtensionPaymentPayAtStore extends Model {
 		$this->load->language('extension/payment/payatstore');
 
 		//echo "<pre>";print_r($this->session->data['shipping_method']);echo "</pre>";
-		if ($this->session->data['shipping_method']['code']=='pickup.pickup'){
+		if ((isset($this->session->data['shipping_method']) && $this->session->data['shipping_method']['code']=='pickup.pickup') OR (isset($this->session->data['api_id']) && $this->session->data['api_id']==1)){
 		  $status  = true;
 	  }else{
 			$status=false;
